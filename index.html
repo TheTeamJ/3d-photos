@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>3D写真</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #0e0e0e;
+      }
+
+      .photo {
+        margin-top: 32px;
+        cursor: move;
+      }
+
+      #selector {
+        margin: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div>
+        <select id='selector'>
+          <option value='coffee'>coffee</option>
+          <option value='juice'>juice</option>
+          <option value='mcgriddles'>mcgriddles</option>
+          <option value='ninja'>ninja</option>
+        </select>
+      </div>
+      <div class='photo'></div>
+    </center>
+    <script src='js/index.js'></script>
+  </body>
+</html>
