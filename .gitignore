@@ -1,5 +1,7 @@
 ### https://raw.github.com/github/gitignore/55df35ee63aef4a6f859559af980c9fb87bee1a1/Global/macOS.gitignore
 photos/tmp/*
+photos/raw/ninja.jpg
+photos/depth_map/ninja.jpg
 
 # General
 .DS_Store

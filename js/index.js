@@ -11,13 +11,25 @@ const size = {
     width: 600,
     height: 800
   },
+  tarte: {
+    width: 800,
+    height: 600
+  },
   ninja: {
     width: 800,
     height: 600
   }
 }
 
+let holdMouse = false
 
+const resetScales = displacementFilter => {
+  displacementFilter.scale.x = 0
+  displacementFilter.scale.y = 0
+  holdMouse = false
+}
+
+// ref. https://redstapler.co/3d-photo-from-image-javascript-tutorial/
 function main (name) {
   const container = document.querySelector('.photo')
   const { width, height } = size[name]
@@ -43,25 +55,16 @@ function main (name) {
   const displacementFilter = new PIXI.filters.DisplacementFilter(depthMap)
   app.stage.filters = [displacementFilter]
 
-  let holdMouse = false
   container.onmousedown = function () {
     holdMouse = true
   }
   container.onmouseup = function () {
-    displacementFilter.scale.x = 0
-    displacementFilter.scale.y = 0
-    holdMouse = false
+    resetScales(displacementFilter)
   }
   window.onmouseup = function (event) {
-    if (event.target !== container) {
-      displacementFilter.scale.x = 0
-      displacementFilter.scale.y = 0
-      holdMouse = false
-    }
+    if (event.target !== container) resetScales(displacementFilter)
   }
-
-  displacementFilter.scale.x = 0
-  displacementFilter.scale.y = 0
+  resetScales(displacementFilter)
 
   container.onmousemove = function (event) {
     if (!holdMouse) return
